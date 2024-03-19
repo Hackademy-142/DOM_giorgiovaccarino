@@ -18,7 +18,7 @@ let formButton = document.querySelector('#formButton');
 
 //ARRAY CARDS
 // [{'nome': coso, 'ruolo': kingOfTheBongo, 'foto': https:\\picsum.photos/200}]
-const ourPeople = [{'name': 'coso', 'ruolo': 'kingOfTheBongo', 'foto': 'https://picsum.photos/200'}]
+const ourPeople = []
 
 //FUNZIONI UTILI
 function randNum(min, max) {
@@ -32,8 +32,8 @@ function addCard() {
     cardsCont.innerHTML = '';
     ourPeople.forEach((person) => {
         let col = document.createElement("div");
-        col.classList.add('col-12', 'col-md-3');
-        col.innerHTML = ` <div class="card">
+        col.classList.add('col-12', 'col-md-3', 'pb-3');
+        col.innerHTML = ` <div class="card p-3">
                               <img src=${person.foto} class="card-img-top" alt="...">
                               <div class="card-body">
                                   <h5 class="card-title">${person.name}</h5>
@@ -51,7 +51,7 @@ function pushPerson() {
     console.log(firstName.value); // CONTROLLO
     console.log(lastName.value); // CONTROLLO
     console.log(ourPeople); //CONTROLLO
-    ourPeople.push({name: firstName.value+' '+lastName.value, ruolo: role(), foto: `https://picsum.photos/200`});
+    return ourPeople.push({name: firstName.value+' '+lastName.value, ruolo: role(), foto: `https://picsum.photos/200`});
 };
 
 
@@ -78,5 +78,6 @@ boldButton.addEventListener('click', ()=> {
 addCard() //CONTROLLO
 formButton.addEventListener('click', ()=> {
     pushPerson();
+    // ourPeople.push({name: firstName.value+' '+lastName.value, ruolo: role(), foto: `https://picsum.photos/200`});
     addCard();
 });
